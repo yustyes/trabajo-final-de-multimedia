@@ -1,0 +1,644 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --principal: #1e88e5;
+    --secundario: #e53935;
+    --gris: #f2f2f2;
+    --blanco: #ffffff;
+    --texto: #333333;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--gris);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--blanco);
+    padding: 1rem 2rem;
+    box-shadow: var(--sombra);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    padding: 4px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.02);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--texto);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--principal);
+}
+
+/* ===== BOTON CAMBIAR TEMA (SOL/LUNA) ===== */
+.theme-toggle{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    background: #f6f6f6;
+    color: #ff9800;
+    box-shadow: var(--sombra);
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+
+    /* lo separa un poco más del logo */
+    margin-left: 18px;
+}
+
+.theme-toggle:hover{
+    transform: scale(1.07);
+}
+
+.theme-toggle i{
+    transition: transform 0.35s ease, opacity 0.2s ease;
+}
+
+/* animación cuando cambia */
+.theme-toggle.anim i{
+    transform: rotate(180deg) scale(0.6);
+    opacity: 0;
+}
+
+/* colores en dark mode */
+body.dark-mode .theme-toggle{
+    background: #222;
+    color: #f5f5f5;
+}
+
+
+.btn button {
+    background-color: var(--principal);
+    color: var(--blanco);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: inherit;
+}
+
+.btn button:hover {
+    background-color: var(--secundario);
+    transform: scale(1.05);
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--blanco);
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--texto);
+}
+
+.precio {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secundario);
+    margin: 0.5rem 0 1.2rem;
+}
+
+.btn-agregar {
+    background-color: var(--principal);
+    color: var(--blanco);
+    border: none;
+    padding: 0.75rem 1.8rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: inherit;
+    border: 1px solid transparent;
+}
+
+.btn-agregar:hover {
+    background-color: var(--secundario);
+    transform: scale(1.02);
+}
+
+footer {
+    background-color: var(--blanco);
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+}
+
+footer ol {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+footer .btn {
+    text-decoration: none;
+    color: var(--texto);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer .btn:hover {
+    color: var(--principal);
+}
+
+@media screen and (min-width: 600px) {
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2.5rem 2rem;
+    }
+
+    .header {
+        padding: 1rem 3rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .productos {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 3rem 2rem;
+    }
+
+    .header {
+        padding: 1rem 5rem;
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .btn button {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .card img {
+        height: 180px;
+    }
+}
+
+:root {
+    --fondo: #ffffff;
+    --texto: #111111;
+    --tarjeta: #f4f4f4;
+}
+
+.dark {
+    --fondo: #121212;
+    --texto: #000000;
+    --tarjeta: #1e1e1e;
+}
+
+
+body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial;
+    margin: 0;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.card {
+    background: var(--tarjeta);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .btn button {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+.card img {
+    height: 180px;
+}
+
+/* DARK MODE */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+body.dark-mode .header,
+body.dark-mode footer,
+body.dark-mode .card,
+body.dark-mode section {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+body.dark-mode a {
+    color: #ffffff;
+}
+
+html, body {
+    height: 100%;
+}
+footer {
+    margin: 0;
+}
+
+#carrito {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 200;
+}
+body.dark-mode #carrito {
+    background: #1e1e1e;
+}
+#carrito.activo {
+    right: 0;
+}
+
+.cerrar-carrito {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+    color: inherit;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode * {
+    color: #ffffff !important;
+}
+
+body.dark-mode .header,
+body.dark-mode footer,
+body.dark-mode section {
+    background-color: #1e1e1e !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+#carrito {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    padding: 1rem;
+    z-index: 200;
+    backdrop-filter: blur(10px);
+}
+
+#carrito.activo {
+    right: 0;
+}
+
+body.dark-mode #carrito {
+    background: #1e1e1e;
+}
+
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.cerrar-carrito {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+    color: inherit;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode * {
+    color: #ffffff !important;
+}
+
+body.dark-mode .header,
+body.dark-mode footer,
+body.dark-mode section {
+    background-color: #1e1e1e !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+#carrito {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    padding: 1rem;
+    z-index: 200;
+    backdrop-filter: blur(10px);
+}
+
+#carrito.activo {
+    right: 0;
+}
+
+body.dark-mode #carrito {
+    background: #1e1e1e;
+}
+
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.cerrar-carrito {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+    color: inherit;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container, .products {
+    padding: 20px;
+    gap: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a, .mode-btn {
+    font-size: 18px;
+    padding: 8px 14px;
+}
+
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark header,
+body.dark footer {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark .product-card {
+    background-color: #2a2a2a;
+}
+
+body.dark .product-card h3 {
+    color: white;
+}
+
+.cart-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: 0.3s;
+}
+
+.cart-panel.active {
+    transform: translateX(0);
+}
+
+.cart-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.cart-item img {
+    width: 50px;
+}
+
+.cart-total {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.dark .carrito,
+.dark #carrito,
+.dark .sidebar,
+.dark .cart,
+.dark .offcanvas {
+    background:#ffffff !important;
+    color:#000000 !important;
+}
+.dark .carrito *,
+.dark #carrito *,
+.dark .sidebar *,
+.dark .cart *,
+.dark .offcanvas *{
+    color:#000000 !important;
+}
+
+
+.dark .carrito .close,
+.dark .carrito .cerrar,
+.dark .sidebar .close,
+.dark .cart .close,
+.dark .offcanvas .btn-close{
+    color:#000000 !important;
+    filter:none !important;
+}
+
+
+.dark .carrito button,
+.dark .sidebar button,
+.dark .cart button{
+    color:#ffffff !important;
+}
+.header .btn-header{ }

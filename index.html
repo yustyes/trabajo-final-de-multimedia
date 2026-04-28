@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/logo 2.webp" alt="logo de la marca">
+        </div>
+
+        <button class="theme-toggle" onclick="cambiarModo()" aria-label="Cambiar tema" title="Cambiar tema">
+            <i class="fas fa-sun"></i>
+        </button>
+
+        <nav>
+            <ol class="nav-links">
+                <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+
+                <li><a href="#"><i class="fas fa-cogs"></i> Servicios</a></li>
+            </ol>
+        </nav>
+
+
+        <button onclick="toggleCarrito()">🛒</button>
+        <section id="carrito">
+            <button class="cerrar-carrito" onclick="toggleCarrito()">✖</button>
+            <h2>Carrito de Compras</h2>
+            <button><img src="imagenes/carrito-de-la-compra-removebg-preview.webp" width="50px" alt="carro de la compra"></button>
+            <ul id="lista-carrito"></ul>
+            <p>Total: $<span id="total">0</span></p>
+        </section>
+
+
+
+    </header>
+
+    <section class="productos">
+
+        <div class="card" id="contenedor">
+            <img src="imagenes/beribies-auriculares 2.webp" alt="Auriculares Bluetooth">
+            <h3>BERIBES Auriculares</h3>
+            <p class="precio">$45.000</p>
+            <button onclick="agregarProducto('BERIBES Auriculares', 45000)">
+                Agregar al Carrito
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="imagenes/producto 2.webp"
+                alt="HP 14 portátil, Intel Celeron N4020, 4 GB de RAM, 64 GB de almacenamiento...">
+            <h3>HP 14 portátil</h3>
+            <p class="precio">$709.302</p>
+            <button onclick="agregarProducto('HP 14 portátil', 709302)">
+                Agregar al Carrito
+            </button>
+        </div>
+
+        <div class="card" id="contenedor">
+            <img src="imagenes/producto-3.webp" alt="Teclado mecánico">
+            <h3>AULA Teclado mecánico inalámbrico</h3>
+            <p class="precio">$264.779</p>
+            <button onclick="agregarProducto('AULA Teclado mecánico inalámbrico', 264779)">
+                Agregar al Carrito
+            </button>
+        </div>
+
+    </section>
+
+    <footer>
+        <ol>
+            <li><a href="#" class="btn"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#" class="btn"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#" class="btn"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ol>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+
+
+
+</html>
+
+<div class="cart-panel"></div>
